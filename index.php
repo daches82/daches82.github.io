@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="js/modernizr-custom.js"></script>
+	<script src="js/compute.js"></script>
+	<script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/design.css">
+	<link rel="stylesheet" href="css/icomoonsmio.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+
+	
+	
+
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Barlow');
+	</style> 
+	<title>BC Metabolomic</title>
+</head>
+<body>
+	<header>
+		
+		<figure id="lafe">
+			<img src="imagenes/iislafe.jpg" alt="">
+		</figure>
+		
+		
+
+		<nav id="menu">
+			<figure id="showMenu" class="Menumovil" onclick="displayMenu()"><img src="imagenes/menu_total.png" alt="">
+			</figure>
+
+			<div id="menuCard">
+				<ul>
+					<li><a  id="nav_home" onclick = "displayContact('none','home')" href="#">Home</a></li>
+					<li><a id="nav_calculator" onclick = "displayContact('none','calculator')" href="#">Calculator</a></li>
+					<li><a id="nav_about" onclick = "displayContact('none','about')" href="#">About us</a></li>
+					<!-- <li><a onclick = "displayContact('block')" href="#">Contact</a></li> -->
+					<li><a id="nav_contact" onclick = "displayContact('block','contact')" href="#">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- <div id="prev_section" onclick="displaySection('prev')"><img src="imagenes/next.png" alt=""></div>
+		<div id="next_section" onclick="displaySection('next')"><img src="imagenes/next.png" alt=""></div> -->
+	</header>
+	<div id="slider">
+		<section class="slide" id="home">
+			<h1 id="title">
+			Breast Cancer Chemotherapy Response Calculator
+			</h1>
+			<h2 id="subtitle">Metabolomics</h2>
+			<!--<figure id="img_home"><img src="imagenes/dni2.jpg" alt=""></figure>-->
+			
+		</section>
+		<section class="slide" id="calculator">
+
+			
+			<div id="calculator_form">
+				<p id="id_calculator">Parameters</p>
+
+				<form action="" id="form2" name="form2" method="post">
+					<div id="calc_inputs">
+						
+						<div id="grid_ind">
+							<p>Indolelactic Acid</p>
+							<input type="number" step ="0.00001" id="ind" name="ind" placeholder="nM"  />
+						</div>
+						<div id="grid_xanth">
+							<p>Xanthurenic Acid</p>
+							<input type="number" step ="0.00001" id="xanth" name="xanth" placeholder="nM" />
+						</div>
+						<div id="grid_anthacid">
+							<p>Anthranilic Acid</p>
+							<input type="number" step ="0.00001" id="anthacid" name="anthacid" placeholder="nM" />
+						</div>
+						<div id="grid_kyn3oh">
+							<p>Kynurenine(3OH)</p>
+							<input type="number" step ="0.00001" id="kyn3oh" name="kyn3oh" placeholder="nM">
+						</div>
+						<div id="grid_chlorokyn">
+							<p>Chlorokynurenine</p>
+							<input type="number" step ="0.00001" id="chlorokyn" name="chlorokyn" placeholder="nM">
+						</div>
+					</div>
+					<div id="calc_outputs">
+
+						<div id="test">
+							<span id="prueba">
+							<?php
+           		    		 include 'calculator.php';
+           		    	 	$calculadora = new Calculadora();
+           		    	 	if (isset($_POST['ind']) & isset($_POST['xanth']) & isset($_POST['anthacid']) & isset($_POST['kyn3oh'])  & isset($_POST['chlorokyn'])) {
+           		    	 		$calculadora->setPr2();
+           		    	 	}
+           		    	 	?>
+           		    		</span>
+						</div>
+						
+						<div id="output2">
+
+							<p class="c_out">Probability
+							<span id="out_pr2">Pr2</span>
+							</p><b>
+							<?php
+							if (isset($_POST['ind']) & isset($_POST['xanth']) & isset($_POST['anthacid']) & isset($_POST['kyn3oh'])  & isset($_POST['chlorokyn'])) {
+								$calculadora->setPr2();
+								}
+							?></b>
+						</div>
+						<div id="output3">
+							<p class="c_out">Probability
+							<span id="out_pr3">Pr3</span>
+							</p><b>
+							<?php
+							if (isset($_POST['ind']) & isset($_POST['xanth']) & isset($_POST['anthacid']) & isset($_POST['kyn3oh'])  & isset($_POST['chlorokyn'])) {
+								$calculadora->setPr3();
+							}
+							?></b>
+						</div>
+						<div id="output4">
+							<p class="c_out">Probability
+							<span id="out_pr4">Pr4</span>
+							</p><b>
+							<?php
+							if (isset($_POST['ind']) & isset($_POST['xanth']) & isset($_POST['anthacid']) & isset($_POST['kyn3oh'])  & isset($_POST['chlorokyn'])) {
+								$calculadora->setPr4();
+							}
+							?></b>
+						</div>
+						<div id="output5">
+							<p class="c_out">Probability
+							<span id="out_pr5">Pr5</span>
+							</p><b>
+							<?php
+							if (isset($_POST['ind']) & isset($_POST['xanth']) & isset($_POST['anthacid']) & isset($_POST['kyn3oh'])  & isset($_POST['chlorokyn'])) {
+								$calculadora->setPr5();
+							}
+							?></b>
+						</div>
+						<div id="output1">
+							<p id="id_probabilities">Probabilities</p>
+							<p class="c_out">Probability
+							<span id="out_pr1">Pr1</span>
+							</p><b>
+							<?php
+							if (isset($_POST['ind']) & isset($_POST['xanth']) & isset($_POST['anthacid']) & isset($_POST['kyn3oh'])  & isset($_POST['chlorokyn'])) {
+								$calculadora->setPr1();
+								}
+							?></b>
+						</div>
+					</div>		
+					 <input type="submit" name="compute" id="button_compute" value="COMPUTE"  style="color:white;font-weight:bold;font-size:20px" />  
+					<!--<a id="b_compute" onclick = "compute()" href="#">COMPUTE</a>-->
+				</form>
+			</div>
+		</section>
+
+
+
+
+		<section class="slide" id="about">
+			<!-- <p>about us</p> -->
+		
+		<section class="team-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h2>Our Team</h2>
+				
+			</div>
+		</div>
+		<div class="team-members clearfix">
+			<!-- Team member -->
+			<div class="member">
+				<div class="member-text">
+					<div class="member-img set-bg" data-setbg="imagenes/member/1.jpg" style="background-image:url(imagenes/member/1.jpg);"></div>
+					<h2>Carmen Salvador</h2>
+					<span>Medical Oncologist</span>
+				</div>
+				<div class="member-social">
+					
+					<a href="https://www.researchgate.net/profile/Carmen_Salvador_Coloma" target="_blank"><i class="iconify" data-icon="fa-brands:researchgate" style='font-size:27px;color:white'></i></a>
+					
+				</div>
+				<div class="member-info">
+					<div class="member-img mf set-bg" data-setbg="imagenes/member/1.jpg" style="background-image:url(imagenes/member/1.jpg);"></div>
+					<div class="member-meta">
+						<h2>Carmen Salvador</h2>
+						<span>Medical Oncologist</span>
+					</div>
+					<p>Carmen Salvador is Medical Oncologist. Consultant of Medical Oncology</p>
+				</div>
+			</div>
+			<!-- Team member -->
+			<div class="member">
+				<div class="member-text">
+					<div class="member-img set-bg" data-setbg="imagenes/member/2.jpg" style="background-image:url(imagenes/member/2.jpg);"></div>
+					<h2>Ana Santaballa</h2>
+					<span>Medical Oncologist</span>
+				</div>
+				<div class="member-social">
+					<a href="https://www.linkedin.com/in/ana-santaballa-bertran-7666463b/" target="_blank"><i class="icon-linkedin2"></i></a>
+					
+				</div>
+				<div class="member-info">
+					<div class="member-img mf set-bg" data-setbg="imagenes/member/2.jpg" style="background-image:url(imagenes/member/2.jpg);"></div>
+					<div class="member-meta">
+						<h2>Ana Santaballa</h2>
+						<span>Medical Oncologist</span>
+					</div>
+					<p>Ana Santaballa is Medical Oncologist. Head of Breast Cancer Unit in University Hospital La Fe</p>
+				</div>
+			</div>
+			<!-- Team member -->
+			<div class="member">
+				<div class="member-text">
+					<div class="member-img set-bg" data-setbg="imagenes/member/3.jpg" style="background-image:url(imagenes/member/3.jpg);"></div>
+					<h2>Jaime Font de Mora</h2>
+					<span>Chemical scientist</span>
+				</div>
+				<div class="member-social">
+					
+					<a href="https://www.linkedin.com/in/jaime-font-de-mora-b05a336" target="_blank"><i class="icon-linkedin2"></i></a>
+					
+				</div>
+				<div class="member-info">
+					<div class="member-img mf set-bg" data-setbg="imagenes/member/3.jpg" style="background-image:url(imagenes/member/3.jpg);"></div>
+					<div class="member-meta">
+						<h2>Jaime Font de Mora</h2>
+						<span>Biologist</span>
+					</div>
+					<p>Jaime Font de Mora is a Head of Laboratory of Cellular and Molecular Biology Precision Medicine Unit Health Research Institute Hospital La Fe  </p>
+				</div>
+			</div>
+			<!-- Team member -->
+			<div class="member">
+				<div class="member-text">
+					<div class="member-img set-bg" data-setbg="imagenes/member/4.jpg" style="background-image:url(imagenes/member/4.jpg);"></div>
+					<h2>David Calvo</h2>
+					<span>Electronic and computing engineer</span>
+				</div>
+				<div class="member-social">
+					
+					<a href="https://www.linkedin.com/in/davidcalvo" target="_blank"><i class="icon-linkedin2"></i></a>
+					
+				</div>
+				<div class="member-info">
+					<div class="member-img mf set-bg" data-setbg="imagenes/member/4.jpg" style="background-image:url(imagenes/member/4.jpg);"> </div>
+					<div class="member-meta">
+						<h2>David Calvo</h2>
+						<span>Electronic and computing engineer</span>
+					</div>
+					<p>David Calvo. M. Sc. degree in Computing Engineering from the University Jaume I and M.Sc. degree in Electronic Engineering from the University of Valencia. In 2009 he joined the KM3NeT collaboration</p> <!--From 2008 to 2009 he was at European Centre for Nuclear Research (CERN) in Switzerland. In 2009 he joined the Optical and Quantum Communication Group at the Polyehnic University of Valencia where he worked in the field of quatum cryptography.--> 
+				</div>
+			</div>
+			<!-- Team member -->
+		
+
+			
+		</div>
+	</section>
+	</div>
+	<!-- Team section -->
+		</section>
+		<section class="slide" id="contact">
+			<figure id="img_contact"><img src="imagenes/contacto.jpg" alt=""></figure>
+			<div id="address">
+				<strong>Instituto de Investigación Sanitaria La Fe</strong>
+				<p>Av. Fernando Abril Martorell, 106 Torre A 7ª</p>
+				<p>46026 - Valencia</p>
+				<p>Tel. +34 961246700</p>
+			</div>
+			<div id="follow">
+				<p>Follow us</p>
+				<a href='https://www.facebook.com/IISLaFe/' target='_blank'><div id="f_facebook"></div></a>
+				<a href='https://twitter.com/iislafe?lang=es' target='_blank'><div id="f_twitter"></div></a>
+				<a href='https://es.linkedin.com/company/instituto-de-investigaci-n-sanitaria-la-fe' target='_blank'><div id="f_linkedin"></div></a>
+				<a href='https://vimeo.com/iislafe' target='_blank'><div id="f_vimeo"></div></a>
+				<a href='https://www.youtube.com/channel/UCETa2OQ5rb7BHZoORF-3-Tg' target='_blank'><div id="f_youtube"></div></a>
+			</div>
+		</section>
+		
+	</div>
+
+	<div id="contact_form">
+		<form action="contact.php" id="form1" name="form1" method="post">
+			<!-- <div id="close_form" onclick="displayContact('none')"><img src="imagenes/cerrar.png" alt=""></div> -->
+			<figure id="logo_form"><img src="imagenes/logo_form.png" alt=""></figure>
+			<p>Send us your suggestions</p>
+			<input type="text" id="name" name="name" placeholder="Your name" />
+			<input type="text" id="email" name="email" placeholder="Your email" />
+			<textarea id="message" name="message" placeholder="Your Message"></textarea>
+			<input type="submit" name="Submit" id="button" value="SEND"/>
+		</form>
+	</div>
+	
+
+
+	<footer>
+
+    <div class="rrss">
+       <a href='https://www.facebook.com/sharer/sharer.php?u=http://ific.uv.es/~dacaldia/' target='_blank'> 
+      	<div id="facebook"></div>
+      </a>
+     <a href='https://twitter.com/intent/tweet?url=http://ific.uv.es/~dacaldia/index.html/&amp;via=IILAFE&amp;text=Breast Cancer Metabolomic' target='_blank'> 
+    
+      
+       <div id="twitter"></div>
+      </a>
+      <a href='whatsapp://send?text=Breast Cancer Metabolomic http://ific.uv.es/~dacaldia'>
+        <div id="whatsapp"></div>
+      </a>
+    </div> 
+    <p>© 2017 All rights reserved | Privacity Policy</p>
+    <div id="sfch1lw81j8mk2ymmd2eddaanzej2w67h1n"></div><script type="text/javascript" src="https://counter7.wheredoyoucomefrom.ovh/private/counter.js?c=h1lw81j8mk2ymmd2eddaanzej2w67h1n&down=async" async></script>
+  </footer>
+
+
+	
+	
+	<script src="js/main.js"></script>
+	<script>
+		var ini,o2,o3,o4,o5,pp,test;
+		var sections = new Array(4);
+		sections[0]= "home";
+		sections[1]= "calculator";
+		sections[2]= "about";
+		sections[3]= "contact";
+
+		ini=document.getElementById("home");
+		ttt=document.getElementById("test");
+		pp=document.getElementById("prueba");
+		o1=document.getElementById("output1");
+		o2=document.getElementById("output2");
+		o3=document.getElementById("output3");
+		o4=document.getElementById("output4");
+		o5=document.getElementById("output5");
+
+		
+		ini.style.display='block';
+		
+		o1.style.display='none';
+		o2.style.display='none';
+		o3.style.display='none';
+		o4.style.display='none';
+		o5.style.display='none';
+
+
+		pptext=document.getElementById('prueba').innerText;
+
+		
+		if (pptext == "") {
+			navSection('home');
+			
+		}else{
+			o1.style.display='block';
+			o2.style.display='block';
+			o3.style.display='block';
+			o4.style.display='block';
+			o5.style.display='block';
+			navSection('calculator');
+		
+		}
+		
+		pp.style.display='none';
+		
+		
+		
+		
+		
+		
+
+		alertSize();
+		  function alertSize(){
+		    var myWidth = 0, myHeight = 0;
+		    if( typeof( window.innerWidth ) == 'number' ) {
+		      //No-IE
+		      myWidth = window.innerWidth;
+		      myHeight = window.innerHeight;
+		    } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+		      //IE 6+
+		      myWidth = document.documentElement.clientWidth;
+		      myHeight = document.documentElement.clientHeight;
+		    } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+		      //IE 4 compatible
+		      myWidth = document.body.clientWidth;
+		      myHeight = document.body.clientHeight;
+		    }
+
+		    var display;
+			var menucard=document.getElementById("menuCard");
+			display=menucard.style.display;
+		    if (myWidth < 1350){//480
+		    	menucard.style.display = "none"; //none 
+
+			 }
+		    else{
+		      menucard.style.display = "block";
+		     // //if (display == "none" || display == "") menu.style.display = "none";
+		    }
+		    ////menucard.style.display = "none"; //none 
+		    return myWidth;
+		  } 
+		function displayMenu(){
+			var display;
+			var menucard=document.getElementById("menuCard");
+			display=menucard.style.display;
+			
+			
+			if (display=="none" || display==""){
+				menucard.style.display="block";
+				
+			}
+			else{
+
+				menucard.style.display="none";
+				
+			}
+
+		}
+
+	
+		function setColors(section){
+
+			var search;
+			//var menu;
+			var bkgr_body;
+			//var bkgr_menu;
+			if (section==0){
+
+				bkgr_body= "#233D58";
+				//bkgr_menu="white";
+			}
+			else{
+				bkgr_body= "#f3f7f9";
+				//bkgr_body= "#f1f1f1";
+				//bkgr_menu="#29abe2";
+
+			}
+
+			search=document.getElementById(sections[section]);
+			search.style.background=bkgr_body;
+			//menu=document.getElementByTagName('header')[0];//unico elemento
+			//menu.style.background=bkgr_menu;
+
+
+		}
+		// function displaySection(nav){
+
+		// 	var search;
+		// 	var show;
+			
+		// 	for (var i=0;i<3;i++){
+		// 		search=document.getElementById(sections[i]);
+		// 		show=search.style.display;
+
+		// 		if (show == "block"){
+		// 			search.style.display="none";
+		// 			if(nav=="next"){
+		// 				i++;
+		// 				if(i>2) i=0;
+		// 			}
+		// 			if (nav=="prev"){
+		// 				i--;
+		// 				if(i<0) i=2;
+		// 			}
+		// 			search=document.getElementById(sections[i]);
+		// 			search.style.display="block";
+		// 			search.focus();
+		// 			setColors(i);
+		// 			break;
+		// 		}
+		// 	}
+
+		// }
+		function setfocus(ind){
+			var nav_sect = new Array(4);
+			nav_sect[0]= "nav_home";
+			nav_sect[1]= "nav_calculator";
+			nav_sect[2]= "nav_about";
+			nav_sect[3]= "nav_contact";
+			var search;
+			for (var i=0;i<4;i++){
+				
+				search=document.getElementById(nav_sect[i]);
+				if (i==ind) {
+					
+					search.style.background="#233D58";
+					search.style.color="white";
+				}
+				else{
+					
+					search.style.background="white";
+					search.style.color="#233D58";
+				}
+			}
+		}
+		function navSection(nav){
+
+			var search;
+			var show;
+			var checkwidth;
+			checkwidth=alertSize();
+			//if (checkwidth<950) displayMenu();
+			
+			for (var i=0;i<4;i++){
+				search=document.getElementById(sections[i]);
+				
+				if (sections[i]==nav) {
+					
+					search.style.display="block";
+					setfocus(i);
+					setColors(i);
+					
+				}
+				else search.style.display="none";
+				
+				
+			}
+			
+
+				
+			
+		}
+
+
+		function displayContact(status,sec){
+			displayMenu();
+			var vform=document.getElementById("contact_form");
+			vform.style.display=status;
+			navSection(sec);
+
+		}
+		
+
+
+		
+	</script>
+	<!-- <div id="principal">
+			<figure><img src="imagenes/gen2.jpg" alt="">
+				</figure>
+		</div> 
+	<h2>Triple negative breast cancer metabolomic prediction</h2>-->
+	
+</body>
+</html>
